@@ -1,0 +1,11 @@
+- provide(:title, @user.username)
+.row
+  %aside.col-md-4
+    %section.user_info
+      %h1
+        = @user.username
+  .col-md-8
+    %h3
+    = render 'switform'
+    %ol.swits= render @swits
+    = will_paginate @swits

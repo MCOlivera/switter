@@ -1,0 +1,6 @@
+%ul
+  = link_to comment.user.username, comment.user
+
+  = comment.content
+
+  = link_to "Delete", comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true

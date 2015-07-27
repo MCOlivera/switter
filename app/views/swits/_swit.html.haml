@@ -1,0 +1,32 @@
+%ul{:id => "swit-#{swit.id}"}
+  %span.user= link_to swit.user.username, swit.user
+  %span.swit-content #{swit.content}
+  
+  %br
+
+  = link_to "Sweet [" + swit.ratings.where(:rate => true).count.to_s + "]", sweet_path(swit_id: swit.id), :remote => true
+  \|
+  = link_to "Sour [" + swit.ratings.where(:rate => false).count.to_s + "]", sour_path(swit_id: swit.id), :remote => true
+  \|
+  = link_to "Delete", swit, :method => :delete, :remote => true, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  - if swit.comments.any?
+    %ol.comments= render swit.comments
+
+  %br
+
+  = form_tag swits_comment_path, remote: true, class: "form-inline" do
+    = hidden_field_tag :swit_id, swit.id
+    .input-group
+      = text_field_tag :content, params[:content], class: "form-control", id: "comment-field"
+      %span.input-group-btn
+        = submit_tag "Comment", class: "btn btn-primary"
+
+  %br
+
+  %span.timestamp
+    Posted #{time_ago_in_words(swit.created_at)} ago.
+
+%hr

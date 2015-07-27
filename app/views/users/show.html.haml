@@ -1,0 +1,29 @@
+/ %p#notice= notice
+
+/ %p
+/   %b Username:
+/   = @user.username
+/ %p
+/   %b Password:
+/   = @user.password
+/ = link_to 'Home', home_path
+/ \|
+/ = link_to 'Change Password', edit_user_path(@user)
+/ \|
+/ / = link_to 'Back', users_path
+/ = link_to 'Logout', logout_path
+
+%br
+
+- provide(:title, @user.username)
+.row
+  %aside.col-md-4
+    %section.user_info
+      %h1
+        = @user.username
+  .col-md-8
+    - if @user.swits.any?
+      %h3
+        Swits (#{@user.swits.count})
+      %ol.swits= render @swits
+      = will_paginate @swits

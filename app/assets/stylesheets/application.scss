@@ -1,0 +1,61 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body { 
+	padding-top: 70px;
+	background-color: #F5F8FA;
+}
+
+hr {
+	width: 100%;
+}
+
+.navbar-brand {
+	padding: 7px !important;
+}
+
+.swits ul {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.timestamp {
+	color: #8899a6;
+}
+
+.forms {
+	width: 40%;
+	margin: 5%;
+	float: right;
+}
+
+.message #content {
+ 	width: 100%; 
+  	resize: none;
+}
+
+.swit-form {
+	width: 65%;
+	height: 160px;
+	background-color: #EBF4FB;
+	padding: 2%;
+	border-radius: 5px;
+}
+
+.swit-bottom {
+	margin: 2%;
+
+	.countdown {
+		float: left;
+	}
+	
+	#post-swit-button {
+		float: right;
+	}
+}
+
+.swits {
+	width: 65%;
+	padding: 2%;
+	background-color: #FFFFFF;
+}

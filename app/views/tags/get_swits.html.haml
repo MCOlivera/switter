@@ -1,0 +1,32 @@
+- @tags.each do |tag|
+  %ul{:id => "swit-#{tag.swit.id}"}
+  %span.user= link_to tag.swit.user.username, tag.swit.user
+  %span.swit-content #{tag.swit.content}
+  
+  %br
+
+  = link_to "Sweet [" + tag.swit.ratings.where(:rate => true).count.to_s + "]", sweet_path(swit_id: tag.swit.id), :remote => true
+  \|
+  = link_to "Sour [" + tag.swit.ratings.where(:rate => false).count.to_s + "]", sour_path(swit_id: tag.swit.id), :remote => true
+  \|
+  = link_to "Delete", tag.swit, :method => :delete, :remote => true, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  - if tag.swit.comments.any?
+    %ol.comments= render tag.swit.comments
+
+  %br
+
+  = form_tag swits_comment_path, remote: true, class: "form-inline" do
+    = hidden_field_tag :swit_id, tag.swit.id
+    .form-group
+      = text_field_tag :content, params[:content], class: "form-control"
+    = submit_tag "Comment", class: "btn btn-primary"
+
+  %br
+
+  %span.timestamp
+    Posted #{time_ago_in_words(tag.swit.created_at)} ago.
+
+%hr

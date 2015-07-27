@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  swit_id: 
+  user_id: 
+  content: MyString
+
+two:
+  swit_id: 
+  user_id: 
+  content: MyString

@@ -1,0 +1,41 @@
+= image_tag 'switter-logo.png', size: '400x250', alt: 'Switter Logo', :id => 'switter-logo'
+
+.forms
+  .login
+    = form_for :session, url: login_path, :html => { :class => 'form-horizontal' } do |f|
+      = field_set_tag 'Log In'
+      .form-group
+        = f.label :username, :class => 'control-label col-sm-2'
+        .col-sm-10
+          = f.text_field :username, :class => 'form-control'
+
+      .form-group
+        = f.label :password, :class => 'control-label col-sm-2'
+        .col-sm-10  
+          = f.password_field :password, :class => 'form-control'
+  
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          = f.submit 'Log In', :class => 'btn btn-default'
+
+  .signup
+    = form_for :user, url: signup_path, :html => { :class => 'form-horizontal' } do |f|
+      = field_set_tag 'Sign Up'
+      .form-group
+        = f.label :username, :class => 'control-label col-sm-2'
+        .col-sm-10
+          = f.text_field :username, :class => 'form-control'
+
+      .form-group
+        = f.label :password, :class => 'control-label col-sm-2'
+        .col-sm-10  
+          = f.password_field :password, :class => 'form-control'
+
+      .form-group
+        = f.label :password_confirmation, :class => 'control-label col-sm-2'
+        .col-sm-10  
+          = f.password_field :password_confirmation, :class => 'form-control'
+
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          = f.submit 'Sign Up', :class => 'btn btn-default'

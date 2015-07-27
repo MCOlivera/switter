@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Swit:
+  = @rating.swit
+%p
+  %b User:
+  = @rating.user
+%p
+  %b Rate:
+  = @rating.rate
+
+= link_to 'Edit', edit_rating_path(@rating)
+\|
+= link_to 'Back', ratings_path

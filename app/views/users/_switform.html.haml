@@ -1,0 +1,7 @@
+= form_tag post_swit_path, remote: true, id: "swit-form" do
+  .swit-form
+    .message
+      %textarea.form-control#content{:maxlength => "140", :name => "content", :rows => '4'}
+    .swit-bottom
+      .countdown
+      = submit_tag "Swit!", class: "btn btn-primary", id: "post-swit-button"
