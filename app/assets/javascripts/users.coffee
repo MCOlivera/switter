@@ -12,6 +12,9 @@ $ ->
     updateCountdown()
   $("#content").keyup ->
     updateCountdown()
+
+  $("#swit-form").submit ->
+    jQuery(".countdown").text "140 characters remaining."
   
   $.getJSON("/tags.json").done (data) ->
     for d in data
